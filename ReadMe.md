@@ -57,3 +57,5 @@ File Name : Flight Deals
     ![alt text](https://github.com/distareza/learnpython-day39-flight_deal/blob/master/resources/step-01.10.png?raw=true)
 
 
+Solution Code : 
+https://gist.github.com/angelabauer/99301f807578ad8b6f54e8fb8ec7162b
