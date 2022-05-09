@@ -59,3 +59,24 @@ File Name : Flight Deals
 
 Solution Code : 
 https://gist.github.com/angelabauer/99301f807578ad8b6f54e8fb8ec7162b
+
+
+### Step 2 - Create the Customer Acquisition Code
+In order for other users to access our customer acquisition program, we're going to use repl.it to host our code and share the link to the console with our users.  
+
+Objectives 
+1. Create a new Repl.it project.  https://repl.it/
+2. Create a new Sheet (Tab) in your Copy of Flight Deals Google Sheet:  
+   ![alt text](https://github.com/distareza/learnpython-day39-flight_deal/blob/master/resources/step-02.01.png?raw=true)
+3. Add 3 new column headings - "First Name", "Last Name", "Email" to this new user Sheet:
+   ![alt text](https://github.com/distareza/learnpython-day39-flight_deal/blob/master/resources/step-02.02.png?raw=true)
+4. Sync the new sheet in Sheety. Note: you might have to log in again to Sheety, also you'll need to re-check the PUT checkbox in the prices endpoint.  
+   ![alt text](https://github.com/distareza/learnpython-day39-flight_deal/blob/master/resources/step-02.03.png?raw=true)
+5. Enable the POST method in the users endpoint:  
+   ![alt text](https://github.com/distareza/learnpython-day39-flight_deal/blob/master/resources/step-02.04.png?raw=true)
+6. Code up the Repl.it project so that it asks the user for their first name, last name and email. Make sure to get them to type their email twice for validation. If the two emails match, then tell them that they're in the club. e.g.  
+   ![alt text](https://github.com/distareza/learnpython-day39-flight_deal/blob/master/resources/step-02.05.png?raw=true)
+7. Use the Sheety API to POST the data that the user enters into the user sheet in your Copy of Flight Deals Google Sheet.
+   This is what you're aiming for:  
+   ![alt text](https://github.com/distareza/learnpython-day39-flight_deal/blob/master/resources/step-02.06.gif?raw=true)
+

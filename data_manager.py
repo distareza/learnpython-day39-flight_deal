@@ -3,6 +3,8 @@ import requests
 from pprint import pprint
 
 SHEETY_PRICES_ENDPOINT = "https://api.sheety.co/0fef89f09eb88a13f921e2aac5911ded/flightDeals/prices"
+SHEETY_USERS_ENDPOINT = "https://api.sheety.co/0fef89f09eb88a13f921e2aac5911ded/flightDeals/users"
+
 
 class DataManager:
     #This class is responsible for talking to the Google Sheet.
@@ -60,3 +62,6 @@ class DataManager:
                     print("not able to update")
 
 
+    def get_customer_emails(self):
+        existing_data = requests.get(SHEETY_USERS_ENDPOINT, headers=self.bearer_headers)
+        return existing_data.json()["users"]

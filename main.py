@@ -52,7 +52,24 @@ for destination in sheet_data:
         to_time=six_month_from_today
     )
 
+    # For some destinations, certain time periods, there will be no flights available.
+    # We need to add exception handling to our code so that it doesn't break and crash in these situations.
+    if flight is None:
+        continue
+    if destination["lowestPrice"] is None:
+        continue
+
     # If Flight Price Lower than in Google Sheet send an SMS
-    if flight is not None and destination["lowestPrice"] is not None and flight.price < destination["lowestPrice"]:
+    if flight.price < destination["lowestPrice"]:
+        users = data_manager.get_customer_emails()
+        emails = [row["email"] for row in users]
+        names = [row["firstName"] for row in users]
         message = f"Low price alert! Only £{flight.price} to fly from {flight.origin_city}-{flight.origin_airport} to {flight.destination_city}-{flight.destination_airport}, from {flight.out_date} to {flight.return_date}."
-        notification_manager.send_sms(message)
+
+        if flight.stop_overs > 0:
+            message += f"\n\nFlight has {flight.stop_overs}, via {flight.via_city}."
+        link = f"https://www.google.co.uk/flights?hl=en#flt={flight.origin_airport}.{flight.destination_airport}.{flight.out_date}*{flight.destination_airport}.{flight.origin_airport}.{flight.return_date}"
+
+        #notification_manager.send_sms(message)
+        print(message)
+        notification_manager.send_emails(emails, message, link)
